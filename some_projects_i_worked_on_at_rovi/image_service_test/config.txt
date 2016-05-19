@@ -1,0 +1,5 @@
+self._username=username
+self._password=password
+self._database=Staging
+self._host=tul1cipxdb18
+self._bucket=richmedia.rovicorp.com

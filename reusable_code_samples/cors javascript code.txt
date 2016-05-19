@@ -1,0 +1,24 @@
+//CORS configuration to allow cross-domain access
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    xhr.open(method, url, false);
+  } else if (typeof XDomainRequest != "undefined") {
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    xhr = null;
+  }
+  return xhr;
+}
+
+function httpGet(theUrl)
+{
+	var xhr = createCORSRequest('GET',theUrl);
+	if(xhr){
+			xhr.onload = function(){
+				result = xhr.responseText;
+			}
+	}
+	xhr.send(null);
+}
