@@ -60,14 +60,13 @@ public class ImageNameGeneratorServiceDelegate implements RestRequestDelegator{
 	}
 	
 	public void processResults() throws Exception{
-		InputStream in = null;
 		try{
 			hre.getResponseData();
 		} catch(Exception e){
 			logger.error("Failed to get response Stream.",e);
 		}
 		
-		ri.setResponseData(in);
+		ri.setResponseData(hre.getResponseData());
 		
 		try{
 			ri.processResponseData();
@@ -103,8 +102,8 @@ public class ImageNameGeneratorServiceDelegate implements RestRequestDelegator{
 	}
 
 	public void executeRequest() throws Exception {
-		// TODO Auto-generated method stub
-		
+		getRequestResult();
+		processResults();
 	}
 
 		

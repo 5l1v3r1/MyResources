@@ -2,7 +2,7 @@ package com.josephappeah.corporate.image_name_generator.services;
 
 import java.io.InputStream;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
@@ -14,7 +14,7 @@ import com.josephappeah.corporate.image_name_generator.interfaces.ServiceRequest
 public class ImageNameGeneratorRestService implements ServiceRequestLayer{
 	private static RestRequestDelegator ingsd = null;
 	
-	@GET
+	@POST
 	@Produces("text/plain")
 	public Response getImageName(InputStream In){
 		try{

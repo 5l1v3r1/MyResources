@@ -1,6 +1,6 @@
 package com.josephappeah.corporate.image_name_generator.modules;
 
-import java.io.File;
+//import java.io.File;
 import java.io.FileInputStream;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -15,15 +15,15 @@ public class DependencyHandler implements DependencyInjector{
 	private static final Logger logger = LoggerFactory.getLogger(DependencyHandler.class);
 	
 	public DependencyHandler() throws Exception{
-	    String api_home	= null;
+	    //String api_home	= null;
 	    
 	    try{
-	    	api_home = System.getenv("API_HOME");
+	    	//api_home = System.getenv("API_HOME");
 	    }catch(Exception e){
 	    	throw e;
 	    }
 
-	    String propertiesPath=api_home+ File.separator+"conf"+File.separator+"image_name_generator.properties";
+	    String propertiesPath=/*api_home+ File.separator+"conf"+File.separator+ */ "src/main/resources/ImageNameGenerator.properties";
 
 	 
 	    DependencyHandler.props.load(new FileInputStream(propertiesPath));
