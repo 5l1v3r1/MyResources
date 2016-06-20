@@ -74,7 +74,7 @@ package com.josephappeah.corporate.image_name_generator.utils;
 	    public static void generateSentence(Map<String, List<String>> singleWords,
 	            Map<String, List<String>> dictionary, StringBuilder target, int count) {
 	        Random r = new Random();
-	        for (int i = 0; i < count; i++) {
+	        for (int i = 0; i < 5; i++) {
 	            String w1 = ".";
 	            String w2 = pickRandom(singleWords.get(w1), r);
 	            while (w2 != null) {
@@ -97,7 +97,7 @@ package com.josephappeah.corporate.image_name_generator.utils;
 	    public static String execute(String text){
 	        addDictionary(text);
 	        StringBuilder output = new StringBuilder();
-	        generateSentence(singleWords, dictionary, output,1);
+	        generateSentence(singleWords, dictionary, output,5);
 	        return output.toString();
 	    }
 	}

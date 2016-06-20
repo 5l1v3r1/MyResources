@@ -93,7 +93,7 @@ public class ImageNameGeneratorServiceDelegate implements RestRequestDelegator{
 		}
 	}
 
-	public void setRequestParameters(InputStream In) throws Exception {
+	public void setRequestParameters(InputStream In,Integer LengthOfName) throws Exception {
 			try{
 				RequestBytes = IOUtils.toByteArray(In);
 			}catch (Exception e){

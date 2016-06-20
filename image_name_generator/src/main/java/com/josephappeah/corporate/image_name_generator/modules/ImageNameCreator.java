@@ -2,29 +2,25 @@ package com.josephappeah.corporate.image_name_generator.modules;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
+
+
+import java.util.Random;
 
 import org.apache.commons.io.IOUtils;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.josephappeah.corporate.image_name_generator.interfaces.ResponseIntepretor;
-import com.josephappeah.corporate.image_name_generator.utils.MarkovSentenceGenerator;
 
-import net.jeremybrooks.knicker.Knicker.RelationshipType;
-import net.jeremybrooks.knicker.KnickerException;
-import net.jeremybrooks.knicker.WordApi;
-import net.jeremybrooks.knicker.dto.Related;
+import com.josephappeah.corporate.image_name_generator.utils.NounPhraseGenerator;
 
 public class ImageNameCreator implements ResponseIntepretor{
 
 	private static final Logger logger = LoggerFactory.getLogger(ImageNameCreator.class);
-	private static ArrayList<String> allwords = new ArrayList<String>();
 	private static String cv_data_recieved = null;
-	private static String markovrequeststring = "";
 	private static String markovsentence = null;
 	
 	public void setResponseData(InputStream in) {
@@ -37,55 +33,41 @@ public class ImageNameCreator implements ResponseIntepretor{
 	}
 
 	public void processResponseData() {
-		JSONParser jsonparser = new JSONParser();
 		JSONObject jsonobject = null;
+		JSONArray  jsonarray = null;
+		JSONObject  captions  = null;
 		
 		try{
 			logger.debug("Parsing computer vision json data.");
-			jsonobject = (JSONObject) jsonparser.parse(cv_data_recieved);
+			jsonobject=  (JSONObject) new JSONObject(cv_data_recieved).get("description"); //jsonparser.parse(cv_data_recieved);
+			jsonarray = jsonobject.getJSONArray("captions");
+			captions  = (JSONObject) jsonarray.get(0);
 		}catch(Exception e){
 			logger.error("Failed to parse computer vision json data.",e);
 		}
 
-		
-		logger.debug("{}",jsonobject.get("description.captions").toString());
-		String imagedescription = jsonobject.get("captions").toString();
-		Integer descriptionconfidence = Integer.parseInt(jsonobject.get("confidence").toString());
-		
-		if( descriptionconfidence > 0.65){
-			markovsentence = imagedescription;
-		}else{
-			String[] imagedescriptionwords = imagedescription.split(" ");
-		
-			for(String word : imagedescriptionwords){
-				allwords.add(word);
-				try {
-					List<Related> synonymsofword = WordApi.related(word, false, EnumSet.of(RelationshipType.synonym),2);
-					for(Related synonym : synonymsofword){
-						allwords.add(synonym.toString());
-					}
-				}catch (KnickerException e) {
-					logger.error("Failed to get synonyms from wordnik",e);
-				}
+		logger.debug("{}",captions.get("text"));
+		String imagedescription = captions.get("text").toString();
+		//Integer descriptionconfidence = (Integer)(((Double) captions.get("confidence")).intValue());
+		NounPhraseGenerator npg = new NounPhraseGenerator();
+		ArrayList<String> possibletitles = npg.execute(imagedescription);
+		Random rand = new Random();
+		int  randomnumber = rand.nextInt(possibletitles.size());
+		for(String string : possibletitles){
+			if(string.split(" ").length >= 3 && string.split(" ").length < imagedescription.split(" ").length){
+				markovsentence = string;
+				break;
+			}else if(imagedescription.split(" ").length <= 5){
+				markovsentence = imagedescription;
 			}
-		
-		
-			for(String word: allwords ){
-				markovrequeststring.concat(" "+word);
-			}
-		
-			try{
-				logger.debug("Generating Markov Sentence");
-				markovsentence = MarkovSentenceGenerator.execute(markovrequeststring);
-			}catch(Exception e){
-				logger.error("Failed to generate markov sentence.",e);
+			else{
+				markovsentence = possibletitles.get(randomnumber);
 			}
 		}
-		
 	}
 
 	public String getProcessedData() {
-		return markovsentence;
+		return markovsentence.replace(" ", "_");
 	}
 
 }
