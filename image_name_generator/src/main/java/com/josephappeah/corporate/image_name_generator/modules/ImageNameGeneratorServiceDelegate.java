@@ -95,8 +95,10 @@ public class ImageNameGeneratorServiceDelegate implements RestRequestDelegator{
 
 	public void setRequestParameters(InputStream In,Integer LengthOfName) throws Exception {
 			try{
+				logger.debug("Setting parameters");
 				RequestBytes = IOUtils.toByteArray(In);
 			}catch (Exception e){
+				logger.error("Failed to set parameter",e);
 				throw e;
 			}
 	}
