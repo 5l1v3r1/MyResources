@@ -23,10 +23,12 @@ public class ImageNameGeneratorRestService implements ServiceRequestLayer{
 	@POST
 	@Produces("text/plain")
 	public Response getImageName(InputStream In,
-			@QueryParam("/prefix") String prefix, 
-			@QueryParam("/suffix") String suffix, 
-			@QueryParam("/length") Integer lengthofname)
+			@QueryParam("prefix") String prefix, 
+			@QueryParam("suffix") String suffix, 
+			@QueryParam("length") Integer lengthofname)
 	{
+		if(prefix == null){prefix = "";}else{prefix+="_";}
+		if(suffix == null){suffix = "";}else{suffix="_"+suffix;}
 		byte[] image = null;
 		try{
 			image = IOUtils.toByteArray(In);
@@ -53,7 +55,7 @@ public class ImageNameGeneratorRestService implements ServiceRequestLayer{
 		}
 		
 		try{
-			return Response.status(200).entity(ingsd.generateResponse()).build();
+			return Response.status(200).entity(prefix+ingsd.generateResponse()+suffix).build();
 		}catch(Exception e){
 			return Response.status(404).entity("The Requested Resource was not found, or service "
 					+ "is temporarily down. Please try again in a few hours. My sincerest"

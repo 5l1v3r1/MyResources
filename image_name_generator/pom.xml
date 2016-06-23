@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.josephappeah.corporate</groupId>
   <artifactId>image_name_generator</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>image_name_generator_service</name>
   <url>http://maven.apache.org</url>

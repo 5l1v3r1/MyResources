@@ -1,5 +1,6 @@
 package com.josephappeah.corporate.image_name_generator.utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,16 +15,27 @@ import opennlp.tools.parser.ParserFactory;
 import opennlp.tools.parser.ParserModel;
 
 public class NounPhraseGenerator {
-static String sentence = "a items car jump random get. i on boat a table chair plurar car";
+
 	
 	static Set<String> nounPhrases = new HashSet<>();
 	
 	public ArrayList<String> execute(String sentence){
+	    String api_home	= null;
+	    
+	    try{
+	    	api_home = System.getenv("API_HOME");
+	    }catch(Exception e){
+	    	throw e;
+	    }
+
+	    String configPath=api_home+ File.separator+ "en-parser-chunking.bin";
+		
+		
 		ArrayList<String> returnNounPhrases = new ArrayList<String>();
 		InputStream modelInParse = null;
 		try {
 			//load chunking model
-			modelInParse = new FileInputStream("src/main/resources/en-parser-chunking.bin"); //from http://opennlp.sourceforge.net/models-1.5/
+			modelInParse = new FileInputStream(configPath); //from http://opennlp.sourceforge.net/models-1.5/
 			ParserModel model = new ParserModel(modelInParse);
 			
 			//create parse tree

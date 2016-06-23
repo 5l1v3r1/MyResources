@@ -1,0 +1,65 @@
+<html>
+    
+    <head>
+        <title>Justice API | Home</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="animate.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <!-- Custom Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+            <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        
+        <!-- My Javascript & CSS -->    
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+        
+    </head>
+    
+    <body class="animated bounce">
+        <!--navbar-->
+        <nav class="navbar" id="nav">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="navbrand"> The Justice API </a>
+            </div>
+        </nav>
+        
+       <header id="api_description">
+            <div class="container-fluid" id="api_description_inner">
+                <p id="intro-text">
+                    Generate descriptive file names for images in your project.
+					</br>
+					</br>
+					</br>
+					<a class="page-scroll btn btn-xl" id="intro-button" >It's free, Try it now!</a>
+                </p>
+				</br>
+				<div id="header-bottom-border"></div>
+            </div>
+        </header>
+		
+        <section id="info_and_use">
+            <div class="container-fluid" id="info_and_use_inner">
+			<p id="simple-paragraph"><strike id="simple-bar"><span>It's Simple!</span></strike></p>
+                <p id="description-text">HTTP POST the image to 107.170.134.121:8082/v1/image_name_generator. 
+					The response name will be a in text or <text/plain> format.
+				</p>
+            </div>
+        </section>
+        
+        <!--footer-->
+        <footer class="fixed-bottom" id="footer">
+            <div class="container-fluid">
+            </div>
+        </footer>
+    </body>
+</html>
