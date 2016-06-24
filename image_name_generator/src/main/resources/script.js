@@ -64,11 +64,11 @@ function uploadImage(){
 
 function imageUploadButton(){
 	$('#pseudo-upload-button').click(function(){
-		if(document.getElementById("pseudo-upload-button").innerHTML === 'upload'){
+		if(document.getElementById("pseudo-upload-button").innerHTML === 'Upload the image'){
 			uploadImage();
-		}else if(document.getElementById("pseudo-upload-button").innerHTML === 'upload an image'){
+		}else if(document.getElementById("pseudo-upload-button").innerHTML === 'Select an image'){
 			document.getElementById("file").click();
-			document.getElementById("pseudo-upload-button").innerHTML = 'upload';
+			document.getElementById("pseudo-upload-button").innerHTML = 'Upload the image';
 		}
 	});
 }
