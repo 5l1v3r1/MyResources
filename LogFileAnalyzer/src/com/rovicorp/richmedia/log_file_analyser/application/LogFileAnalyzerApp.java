@@ -14,20 +14,22 @@ import org.apache.commons.io.LineIterator;
  */
 public class LogFileAnalyzerApp {
     private static ArrayList<String> FileDirectory = new ArrayList<>();
+    private static String filed = null;
     private static final ArrayList<String> logfileurls = new ArrayList<>();
     
     public static void main(String[] args) throws Exception{
 
-            FileDirectory.add("c:/users/jappeah/desktop/14-06-16/");
-            FileDirectory.add("c:/users/jappeah/desktop/15-06-16/");
-            FileDirectory.add("c:/users/jappeah/desktop/16-06-16/");
+            //FileDirectory.add("c:/users/jappeah/desktop/14-06-16/");
+            //FileDirectory.add("c:/users/jappeah/desktop/15-06-16/");
             FileDirectory.add("c:/users/jappeah/desktop/17-06-16/");
-            FileDirectory.add("c:/users/jappeah/desktop/18-06-16/");
-            FileDirectory.add("c:/users/jappeah/desktop/19-06-16/");
+            //FileDirectory.add("c:/users/jappeah/desktop/17-06-16/");
+            //FileDirectory.add("c:/users/jappeah/desktop/18-06-16/");
+            //FileDirectory.add("c:/users/jappeah/desktop/19-06-16/");
 
         
         for(String file : FileDirectory){
             LogFileAnalyzerApp lfaa = new LogFileAnalyzerApp();
+            filed = file;
             lfaa.parseLine(lfaa.getLogFiles(file));
         }
     }
@@ -144,7 +146,7 @@ public class LogFileAnalyzerApp {
         File file = null;        
         for(Map.Entry<String, Map<String, ArrayList>> entry : rspnsstatus.entrySet()){ 
             for(Map.Entry<String,ArrayList> inner_entry : entry.getValue().entrySet()){
-                    filepath = FileDirectory+"_Top_IP_Status_"+entry.getKey()+".csv";
+                    filepath = filed+"_Top_IP_Status_"+entry.getKey()+".csv";
                     file = new File(filepath);
                 String eachline = entry.getKey() +"," +inner_entry.getKey() +","+ inner_entry.getValue().get(0)+","+inner_entry.getValue().get(1) ;
                 try{
@@ -214,7 +216,7 @@ public class LogFileAnalyzerApp {
         File file = null;        
         for(Map.Entry <String, Map<String,Long>> entry : topipbyurlcount.entrySet()){ 
             for(Map.Entry<String,Long> inner_entry : entry.getValue().entrySet()){
-                    filepath = FileDirectory+"_URL_Count_"+entry.getKey()+".csv";
+                    filepath = filed+"_URL_Count_"+entry.getKey()+".csv";
                     file = new File(filepath);
                 String eachline = entry.getKey() +"," +inner_entry.getKey().replace(" ", "").replace(",","") +","+ inner_entry.getValue() ;
                 try{
@@ -251,7 +253,7 @@ public class LogFileAnalyzerApp {
     }
     
     public void getbytesperstatus(){
-        String filepath = FileDirectory+"bytesperStatus.csv";
+        String filepath = filed+"bytesperStatus.csv";
         File file = new File(filepath);
         Long total = null;
         for(Map.Entry <String, Long> entry : bytesperstatus.entrySet()){ 

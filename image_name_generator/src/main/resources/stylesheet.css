@@ -1,12 +1,8 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Jun 23, 2016, 10:40:27 AM
-    Author     : jappeah
-*/
+/*================================================================
+					justice API css
+		    		Created on : Jun 23, 2016
+					Author     : jappeah
+==================================================================*/
 
 #nav{
     background: #222;
@@ -18,10 +14,10 @@ and open the template in the editor.
     margin-bottom: 0px;
 }
 
-#navbrand{
+#navbar-brand{
     color:#fed136;
     font-family:Kaushan Script !important;
-    text-shadow:1px 1px 2px #424242;
+    text-shadow:1px 1px 1px #424242;
     font-size:30px;    
 }
 
@@ -30,7 +26,7 @@ and open the template in the editor.
 }
 
 #api_description{
-    height:50% !important;
+    height:70% !important;
     width:100% !important;
     margin-top: 0px;
 
@@ -54,7 +50,7 @@ and open the template in the editor.
 	font-family:Kaushan Script !important;
 	font-size:35px;
 	color:#222;
-	/*text-shadow:1px 2px 1px #a6a6a6;*/
+	text-shadow:1px 2px 1px #e0e0e0;
 }
 
 #intro-button{
@@ -69,13 +65,22 @@ and open the template in the editor.
 	text-shadow:0px 0px 0px #fed136!important;
 }
 
-#intro-button:hover{
+#intro-button:active{
+	box-shadow: inset 0 5px 5px -2px #a6a6a6;
+}
+
+#intro-button:hover, #file:hover {
 	border-bottom: 1px solid #616161;
 	background:#222;
 	color:#fed136;
-	box-shadow: 0 5px 5px -2px #a6a6a6;
+	box-shadow: 0 3px 3px -1px #a6a6a6;
 }
 
+#info-and-use{
+	background:#eeeeee;
+	height:60% !important;
+	border-top:1px solid #e5e5e5;
+}
 
 #description-text{
    	margin-top:9%;
@@ -87,6 +92,65 @@ and open the template in the editor.
 
 #simple-bar{
 	width: 100% !important;
+}
+
+#footer{
+	background:#222;
+}
+
+#image-prefix, #image-suffix {
+	border-radius:0px;
+	height:45px;
+	float:center;
+	font-family:Montserrat;
+	border:1px solid #222;
+	box-shadow: 0 3px 3px -1px #a6a6a6;
+	width:70%;
+	text-align:center;
+	font-size:20px;
+	outline: none !important;
+}
+
+#image-parameters{
+	text-align:center;
+}
+#upload-button{
+	text-align:center;
+}
+
+#pseudo-upload-button{
+	border:0px;
+	font-family:Lato !important;
+	font-size:22px;
+	background:#fed136;
+	color:#222;
+	border-radius: 0px;
+	box-shadow: 0 3px 3px -1px #a6a6a6;
+	text-shadow:0px 0px 0px #fed136!important;
+}
+
+#image-name-display{
+	width:100% !important;
+	font-family:Lato !important;
+}
+
+#image-name{
+	font-family:Kaushan Script !important;
+	color:#222;
+	text-shadow:1px 2px 1px #e0e0e0;
+}
+
+#image-name-text{
+	text-align:center;
+	font-size:30px;
+	color:#222;
+}
+
+#api-tests{
+	width:100% !important;
+	height: 40%;
+	background:#a6a6a6 !important;
+	margin-top:5% !important;
 }
 
 #simple-paragraph{
