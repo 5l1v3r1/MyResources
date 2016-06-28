@@ -1,19 +1,39 @@
 html,body{
-	font-family: Raleway !important;
+	font-family: Lato !important;
 	text-align:center;
 	height:100%;
 	width:100%;
 }
 
 #application-one{
+	font-family: Lato !important;
 	width:100%;
 	height:40%;
 	border-top:1px solid #e0e0e0;
 	border-bottom:1px solid #e0e0e0;
 }
 
-#application-two{
+#application-two, #application-three, #application-four, #application-five{
+	font-family: Lato !important;
 	width:100%;
-	height:40%;
+	height:200px !important;
 	border-bottom:1px solid #e0e0e0;
+}
+
+#list{
+	list-style: none;
+}
+#list:hover{
+	box-shadow:0 4px 4px -2px #a6a6a6;
+	line-height: 40px;
+}
+
+#contact-form-error{
+	color:red;
+	text-decoration:bold;
+	font-family:Lato;
+}
+
+#contact-form-email.ng-invalid{
+	background: #fed123;
 }

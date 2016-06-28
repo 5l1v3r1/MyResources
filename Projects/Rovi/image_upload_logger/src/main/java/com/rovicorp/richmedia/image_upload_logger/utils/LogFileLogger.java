@@ -20,7 +20,7 @@ public class LogFileLogger implements DataStorage {
 	private Calendar calendar = Calendar.getInstance();
 
 	
-	public static void main(String[] args[]) throws Exception{
+	public static void main(String[] args) throws Exception{
 		LogFileLogger lfl = new LogFileLogger();
 		lfl.store("path", "Bytes".getBytes(), null);
 	}
@@ -28,12 +28,12 @@ public class LogFileLogger implements DataStorage {
 	
 	public void store(String FilePath, byte[] Bytes, String TimeStamp) throws Exception {
 		
-		if(TimeStamp.equals(null)){
+		if(TimeStamp == null){
 			calendar.add(Calendar.DATE, 0);
 			TimeStamp = df.format(calendar.getTime());
 		}
 
-		logger.debug("Storing:\nFilePath: {}\nByteSize: {}\nTimeStamp: {}\nTo log file {}", FilePath,
+		logger.debug("Storing: FilePath: {} | ByteSize: {} | TimeStamp: {} | To log file {}", FilePath,
 				Bytes.length, TimeStamp, ImageTransferLogFile);
 		
 		String LineFormat = "FilePath=" + FilePath + "ByteSize=" + Bytes.length + "TimeStamp=" + TimeStamp;

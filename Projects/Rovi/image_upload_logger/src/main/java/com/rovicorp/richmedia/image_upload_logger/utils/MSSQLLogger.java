@@ -4,8 +4,11 @@ package com.rovicorp.richmedia.image_upload_logger.utils;
 	import java.sql.Connection;
 	import java.sql.ResultSet;
 	import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-	import org.slf4j.Logger;
+import org.slf4j.Logger;
 	import org.slf4j.LoggerFactory;
 	import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -21,6 +24,10 @@ public class MSSQLLogger implements DataStorage {
 	private String password = null;
 
 	private static final Logger logger = LoggerFactory.getLogger(MSSQLLogger.class);
+	
+	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S");
+	private Calendar calendar = Calendar.getInstance();
+
 
 	public MSSQLLogger(String servername, String username, String password) {
 		this.servername = servername;
@@ -66,6 +73,12 @@ public class MSSQLLogger implements DataStorage {
 	
 	public void store(String filepath, byte[] Bytes, String TimeStamp) throws Exception {
 		//Need mssql table structure to create query.
+		
+		if(TimeStamp == null){
+			calendar.add(Calendar.DATE, 0);
+			TimeStamp = df.format(calendar.getTime());
+		}
+		
 		openConnection();
 		try{
 			executeQuery(null);

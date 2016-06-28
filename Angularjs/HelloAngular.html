@@ -7,6 +7,9 @@
 <html>
 
 	<head>
+		<!-- custom Javascript & CSS -->
+		<link href='stylesheet.css' rel="stylesheet" type='text/css'>
+		
 		<!-- jquery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		
@@ -21,10 +24,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
 		<!-- fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-		
-		<!-- custom Javascript & CSS -->
-		<link href='stylesheet.css' rel="stylesheet" type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	
 	
@@ -42,11 +42,57 @@
 		</div>
 		
 		<!-- application two -->
-		<div ng-app="app" id="application-two">
+		<div ng-app="app-2" id="application-two" ng-init="entries=[]">
 			<div ng-controller="ctrl-two">
+				<ul>
+					<li ng-repeat="x in entries" id="list">
+						{{ x }}
+					</li>
+				</ul>
 			</div>
 		</div>
 		
+		<!-- application three -->
+		<div>
+			<div>
+				<form name="contactform" ng-app="app-3" id="application-three">
+					<input id="contact-form-email" type="email" name="email" ng-model="text" required>
+					<span id="contact-form-error" ng-show="contactform.email.$error.email">Please enter a valid email</span>
+				</form>
+			</div>
+		</div>
+		
+		<!-- application four -->
+		<div ng-app="app-4" id="application-four">
+			<div ng-controller="ctrl-four">
+				<input type="text" ng-model="item" placeholder="add item to the list">
+				<button ng-click="addItem()">add</button>
+				<br>
+				<ul>
+					<li id="list" ng-repeat="x in items track by $index">
+						{{ x }}
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- application five -->
+		<div ng-app="app-5" id="application-five">
+			<div ng-controller="ctrl-five">
+				<div class="col-lg-12">
+					<input placeholder="search" type="text" ng-model="search">
+					<input placeholder="add item" type="text" ng-model="item">
+				</div>
+				<br>
+				<button ng-click="addItem()">add</button>
+				<br>
+				<ul >
+					<li id="list" ng-repeat="x in items | filter:search track by $index">
+						{{x}}
+					</li>
+				</ul>
+			</div>
+		</div>
 	</body>
 	
 </html>
