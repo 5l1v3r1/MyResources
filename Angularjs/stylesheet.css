@@ -1,0 +1,19 @@
+html,body{
+	font-family: Raleway !important;
+	text-align:center;
+	height:100%;
+	width:100%;
+}
+
+#application-one{
+	width:100%;
+	height:40%;
+	border-top:1px solid #e0e0e0;
+	border-bottom:1px solid #e0e0e0;
+}
+
+#application-two{
+	width:100%;
+	height:40%;
+	border-bottom:1px solid #e0e0e0;
+}

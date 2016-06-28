@@ -364,11 +364,7 @@ public class LogFileAnalyzerApp {
         for(Map.Entry <String, Map<String,Long>> entry : topipbyrefcount.entrySet()){ 
             for(Map.Entry<String,Long> inner_entry : entry.getValue().entrySet()){
                     filepath = filed+"_IP_Count_"+entry.getKey()+".csv";
-                    file = new File(filepath);
-                String eachline = entry.getKey() +"," +inner_entry.getKey() +","+ inner_entry.getValue() ;
-                try{
-                    FileUtils.writeStringToFile(file,eachline+"\n",true);
-                }catch(Exception e){
+          
                 }
             }
         }
