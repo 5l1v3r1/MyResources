@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	
+	<body>
+		<div ng-app="app">
+			<div ng-controller="ctrl">
+				<input type="text" ng-model="first">
+				<input type="text" ng-model="last">
+				<br>
+				<p>{{first + "," + last}}</p>
+			</div>
+		</div>
+	</body>
+	
+	<script>
+		var app = angular.module('app', []);
+		app.controller('ctrl', function($scope){
+			$scope.first = 'Pauly';
+			$scope.last  = 'D';
+		});
+	</script>
+	
+</html>
