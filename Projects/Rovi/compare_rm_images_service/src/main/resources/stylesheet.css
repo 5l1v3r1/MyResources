@@ -1,0 +1,175 @@
+@font-face {
+    font-family:Jura;
+    src: url(Jura-Regular.ttf);
+}
+
+body{
+   font-family: Lato !important; 
+   background-color: #f5f5f5;
+}
+
+
+#appendedImage{
+	float:center !important;
+        box-shadow: 0 8px 6px -6px #222;
+}
+
+#environment_button{
+    margin-top:17px; 
+    width:70%;
+    border: 1px solid #a6a6a6;
+    height:30px; 
+}
+
+#environment_button:hover{
+    box-shadow: 0 3px 3px -1px #222;
+}
+
+#title{
+    text-align: center; 
+    margin-top: 13px; 
+    color:white; 
+    text-shadow: 2px 2px 3px #a6a6a6;
+}
+
+#radio_section{
+background: #e5e5e5; 
+margin-top: 0px;
+border-bottom: 1px solid #a6a6a6;
+box-shadow: 1px 1px 3px #bdbdbd;
+}
+
+#navbar{
+width:100%; 
+background:red; 
+margin-bottom: 3px; 
+box-shadow: 2px 2px 3px #a6a6a6;
+border-bottom: 1px solid #a6a6a6;
+    
+}
+
+#info{
+    color:red;
+    text-decoration: strong;
+}
+
+#image_div{
+    	width:100% !important;
+	height:100%;
+	text-align:center;
+
+}
+
+#navbar{
+	border-radius:0px;
+	background:red;
+}
+
+#buttons{
+	width:100%;
+	height:50px;
+	border-radius:0%;
+        border:1px solid #a6a6a6;
+	float: center !important;
+        box-shadow:2px 2px 3px #bdbdbd;
+        outline: none;
+}
+
+#buttons:active, #selectfile:active{
+    box-shadow: inset 2px 2px 3px #a6a6a6;
+    outline: none;
+}
+
+#selectfile{
+    	width:100%;
+	height:50px;
+	border-radius:0%;
+	float: center !important;
+        border:1px solid #a6a6a6;
+        box-shadow:2px 2px 3px #a6a6a6;
+        outline: none;
+}
+
+
+   
+
+#uploadfile{
+    	width:100%;
+	height:50px;
+	border-radius:0%;
+	float: center !important;
+}
+
+#cf_headers{
+	text-align:center;
+	font-size:30px;
+
+}
+
+#cps_headers{
+	text-align:center;
+	font-size:30px;
+
+}
+
+
+
+#cps_urls{
+	text-align:center;
+	word-wrap: break-word;
+	width:100%;
+}
+
+#qa_url{
+    	text-align:center;
+	word-wrap: break-word;
+	width:100%;
+        margin-top:1%;
+}
+
+#cf_urls{
+	text-align:center;
+	word-wrap: break-word;
+	width:100%;
+}
+
+#cpsImagediv{
+	width:100% !important;
+	height:100%;
+	text-align:center;
+}
+
+
+#cfImagediv{
+	width:100% !important;
+	height:100%;
+	text-align:center;	
+}
+
+#cpsAppendedImages{
+	max-width:100%;
+	max-height:100%;
+        box-shadow: 0 8px 6px -6px #222;
+        border:1px solid #a6a6a6;
+	background:#e5e5e5;
+
+}
+
+#cfAppendedImages{
+max-width:100%;
+    max-height:100%;
+    box-shadow: 0 8px 6px -6px #222;
+    border:1px solid #a6a6a6;
+    background:#e5e5e5;
+
+}
+
+#cps_image_metadata{
+	font-size:20px;
+	text-align:center;
+}
+
+#cf_image_metadata{
+	font-size:20px;
+	text-align:center;
+}

@@ -31,7 +31,7 @@
 	<body>
 	
 		<!-- application one -->
-		<div ng-app="app" id="application-one">
+		<div ng-app="app-1" id="application-one">
 			<div ng-controller="ctrl-one">
 				<br>
 				<p>{{first + "  " + last}}</p>
@@ -93,6 +93,46 @@
 				</ul>
 			</div>
 		</div>
+		
+		<!-- application-six -->
+		<div ng-app="app-6" id="application-six" > 
+			<div ng-controller="ctrl-six">
+				<input type="text" ng-model="index" placeholder="enter image index">
+				<button ng-click="updatelist()" >update</button>
+				<ul>
+					<li id="list" ng-repeat="x in items track by $index">
+						{{x}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- application seven -->
+		<div ng-app="app-7" id="application-seven">
+			<div ng-controller="ctrl-seven">
+				<table>
+					<tr ng-repeat="x in items">
+					<!--
+						<td>{{x}}</td>
+						<td> {{ x.DATE }} </td>
+						<td> {{ x.ID }} </td>
+						<td> {{ x.URL }} </td>
+					-->
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<!-- application-eight -->
+		<div ng-app="app-8" id="application-eight">
+			<div ng-controller="ctrl-eight">
+				<select ng-model="id" ng-options="x.ID for x in items" ></select>
+				<br>
+				<p>{{id.ID+" | "+id.DATE+" | "+id.URL}}</p>
+			</div>
+		</div>
+		
+		
 	</body>
 	
 </html>

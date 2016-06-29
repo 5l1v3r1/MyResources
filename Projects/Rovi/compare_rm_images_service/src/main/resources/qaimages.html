@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>    
+    <head>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="qa_js.js"></script>
+    </head>
+    
+    <!--navigation bar-->
+    <body>
+        <nav class="navbar default " style="background-color:red; height:7%; border-bottom:1px solid #a6a6a6; ;border-radius:0px; box-shadow:2px 2px 3px #bdbdbd;">
+            <div class="col-lg-4"></div>
+            <p class="lead col-lg-4" style="text-align:center; color:white; text-shadow:1px 1px 2px #222; margin-top:2%;"><strong>TULSA QA IMAGE BY ID</strong></p>
+            <div class="col-lg-4" style="margin-top:2%; text-align:center;">
+                <input id="image_id"type="text" placeholder="17125602" />
+                <button onclick="regenerate();" >go</button>
+                <a href="/index.html" style="color:white; text-shadow:1px 1px #222; margin-top:17px; text-align:right;"><strong>Compare Page</strong></a>
+            </div>
+            
+        </nav>
+    </body>
+    
+    <!--meta data-->
+    <section id="imagemetadata_section">
+        <div id="qa_metadata"></div>   
+    </section>
+    
+    <!--image-->
+    <section id="image_section">
+        <div class="container-fluid">
+            <div id="image_div"></div>
+        </div>
+        
+        <div><p id="qa_url"></p></div>
+    </section>
+    
+    <!--buttons-->
+    <section style="height:10%; margin-top:2%">
+	<div class="col-lg-12">
+		<div class="col-lg-6"><button  id="buttons" onclick="qa_previous();">< Previous</button></div>
+		<div class="col-lg-6"><button  id="buttons" onclick="qa_next();">Next ></button></div>
+	</div>
+    <section>
+        
+</html>
+

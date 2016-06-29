@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/task		http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+	default-autowire="no">
+	
+	<bean id="dependencyinjector" class="com.rovicorp.compare_rm_images_service.utils.DependencyHandler"></bean>
+	
+	<bean id="RequestProcessor" class="com.rovicorp.compare_rm_images_service.utils.RequestProcessor" scope="singleton">
+		<constructor-arg ref="dependencyinjector"/>
+	</bean>
+	
+	<bean id="Application" class="com.rovicorp.compare_rm_images_service.application.CompareRmImagesApp"></bean>
+	
+	<bean id="RecentRequest" class="com.rovicorp.compare_rm_images_service.services.ReturnRecentImageData" scope="singleton"></bean>
+	<bean id="RandomRequest" class="com.rovicorp.compare_rm_images_service.services.ReturnRandomImageData" scope="singleton"></bean>
+	<bean id="SpecificRequest" class="com.rovicorp.compare_rm_images_service.services.ReturnSpecificImageData" scope="singleton"></bean>
+	
+	
+	<bean id="ApplicationServer" class="com.rovicorp.compare_rm_images_service.resources.CompareRmImagesApplicationServer">
+		<constructor-arg ref="dependencyinjector"/>
+	</bean>
+
+	</beans>

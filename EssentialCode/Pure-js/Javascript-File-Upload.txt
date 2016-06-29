@@ -1,0 +1,33 @@
+for the html code
+<input id="actualselectbutton" type="file" name="attachment"/>
+
+javascript
+
+$(document).ready(function(){
+document.querySelector('#actualselectbutton').addEventListener('change', function(){
+    var reader = new FileReader();
+    reader.onload = function(){
+        var binaryString = this.result;
+        p_result =binaryString;
+        //console.log(binaryString);
+        //document.querySelector('#result').innerHTML = binaryString;
+        };
+    reader.readAsBinaryString(this.files[0]);
+  }, false);
+}); 
+
+
+function httpPost(theUrl)
+{
+    var xhr = createCORSRequest('POST',theUrl);
+    if(xhr){
+        xhr.onload = function(){
+            //result = xhr.responseText;
+        };
+    }
+
+        xhr.send( p_result);
+}
+
+
+//Remember to set the CORS headers on the server
