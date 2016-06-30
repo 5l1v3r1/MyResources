@@ -1,0 +1,6 @@
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\bin\Debug\HelloCSharp.exe.config
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\bin\Debug\HelloCSharp.exe
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\bin\Debug\HelloCSharp.pdb
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\obj\Debug\HelloCSharp.csprojResolveAssemblyReference.cache
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\obj\Debug\HelloCSharp.exe
+C:\Users\jappeah\Documents\myresources\Languages\C#\HelloCSharp\HelloCSharp\obj\Debug\HelloCSharp.pdb
