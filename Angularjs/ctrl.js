@@ -53,3 +53,12 @@ app8.controller('ctrl-eight', function($scope, $http){
 	$http({method:'GET',url:'http://localhost:8086/compare_rm_images_service/randomize?env=UAT'}).then(function(response){ $scope.items = response.data.result.CPS});
 	
 });
+
+app10.controller('ctrl-ten', function($scope){
+	$scope.shadow = function(e){
+		$scope.xcod = e.clientX;
+		$scope.ycod = e.clientY;
+		$('#shadow').css('left', e.clientX+"px");
+		$('#shadow').css('top', e.clientY+"px");
+	}
+});

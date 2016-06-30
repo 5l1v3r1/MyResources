@@ -15,6 +15,7 @@
 		
 		<!-- angular js -->
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 		<script src="app.js"></script>
 		<script src="ctrl.js"></script>
 	
@@ -54,12 +55,10 @@
 		
 		<!-- application three -->
 		<div>
-			<div>
 				<form name="contactform" ng-app="app-3" id="application-three">
 					<input id="contact-form-email" type="email" name="email" ng-model="text" required>
 					<span id="contact-form-error" ng-show="contactform.email.$error.email">Please enter a valid email</span>
 				</form>
-			</div>
 		</div>
 		
 		<!-- application four -->
@@ -123,7 +122,7 @@
 			</div>
 		</div>
 		
-		<!-- application-eight -->
+		<!-- application eight -->
 		<div ng-app="app-8" id="application-eight">
 			<div ng-controller="ctrl-eight">
 				<select ng-model="id" ng-options="x.ID for x in items" ></select>
@@ -132,7 +131,24 @@
 			</div>
 		</div>
 		
+		<!-- application nine -->
+		<div ng-app="app-9" id="application-nine">
+			<div>
+				<input type="checkbox" ng-model="mySwitch"></input>
+				<div ng-show="mySwitch">
+					<p>this is some content</p>
+				</div>
+			</div>
+		</div>
+		
+		<!-- application ten -->
+		<div ng-app="app-10" id="application-ten">
+			<div ng-controller="ctrl-ten" ng-mousemove="shadow($event)" style="width:100%; height:100%;">
+				<p>{{xcod + ", "+ ycod}}</p>
+				<div style="border-radius:100%; width:50px; height:50px; background:#a6a6a6; position:absolute;" id="shadow">
+				</div>
+			</div>
+		</div>
 		
 	</body>
-	
 </html>
