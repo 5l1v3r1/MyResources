@@ -16,8 +16,8 @@ namespace HelloCSharp
             string line = Console.ReadLine();
             hcs.display(Convert.ToString(bm.calculate(line)));
         }
-
     }
+
 
     class print
     {
@@ -45,6 +45,8 @@ namespace HelloCSharp
     {
         public int calculate(string calculation)
         {
+            Console.WriteLine(calculation.Substring(0,0));
+
             if (calculation.Contains("*"))
             {
                 Console.WriteLine(Convert.ToInt32(calculation[calculation.IndexOf("*") - 1]));

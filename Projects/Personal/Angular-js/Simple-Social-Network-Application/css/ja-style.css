@@ -1,0 +1,32 @@
+/*
+=============================================================================
+				     author       :    Joseph Appeah
+					 date         :    07/01/2016
+					 description  :    styles for all projects
+                     frameworks   :    css3
+=============================================================================
+*/
+
+/*
+declaring variables in css
+:root{
+	--variable: blue;
+}
+
+#selector{
+	property: var(--variable);
+}
+*/
+
+
+/*transparent on page load and appears when scroll down*/
+#nav-on-scroll{
+	background: transparent !important;
+	height:   60px !important;
+	width: 100% !important;
+	box-shadow:0 3px 3px -3px #a6a6a6;
+}
+
+#nav-on-scroll:hover{
+	
+}
