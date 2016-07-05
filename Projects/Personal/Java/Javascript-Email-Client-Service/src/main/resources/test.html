@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<script type="text/javascript">
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    xhr.open(method, url, false);
+  } else if (typeof XDomainRequest != "undefined") {
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    xhr = null;
+  }
+  return xhr;
+}
+
+function httpPost(theUrl)
+{
+	var xhr = createCORSRequest('POST',theUrl);
+	if(xhr){
+			xhr.onload = function(){
+				result = xhr.responseText;
+			}
+	}
+	xhr.send(null);
+}
+	function sendEmail(){
+		httpPost("http://localhost:8080/v1/emailclient?sender=josephappeah@gmail.com&recepient=josephappeah@gmail.com&password=babbatts&message=service-test&host=null&subject=test")
+		}
+	</script>
+	
+	<body>
+		<button onclick="sendEmail()">Email</button>
+	</body>
+</html>
