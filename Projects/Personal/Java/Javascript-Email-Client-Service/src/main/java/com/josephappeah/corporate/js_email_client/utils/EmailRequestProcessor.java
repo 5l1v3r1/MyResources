@@ -83,6 +83,7 @@ public class EmailRequestProcessor {
 				multipart.addBodyPart(emailattachment);
 				email.setContent(multipart);
 			}catch(Exception e){
+				logger.error("",e);
 				throw e;
 			}
 			
