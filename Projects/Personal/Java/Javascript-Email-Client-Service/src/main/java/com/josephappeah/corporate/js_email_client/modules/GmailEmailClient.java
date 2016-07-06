@@ -24,7 +24,7 @@ public class GmailEmailClient implements EmailClientHandler {
 	private static final Logger logger = LoggerFactory.getLogger(GmailEmailClient.class);
 	
 	public void setProperties(String sender, String password, String recepient, File attachment, String host, String message, String subject) {
-		logger.debug("Obtaining properties");
+		logger.debug("Obtaining properties.");
 		this.sender = sender;
 		this.recepient = recepient;
 		this.attachment = attachment;
@@ -42,9 +42,10 @@ public class GmailEmailClient implements EmailClientHandler {
 
 	public void processRequest() throws Exception{
 		try{
+			logger.debug("Initializing request processor.");
 			email = EmailRequestProcessor.processRequest(sender, password, recepient, attachment, host, message, subject, email);
 		}catch(Exception e){
-			
+			logger.error("Failed to initialize request processor.",e);
 		}
 	}
 	

@@ -4,14 +4,14 @@
 	<script src="JavascriptClient.js" type="text/javascript"></script>
 
 	<body>
-		<input id="file" type="file" onchange="email.setAttachment(this.files[0]);"/>
-		<button onclick="email.send()">Email</button>
+		<input id="file" type="file" onchange="emai().setAttachment(this.files[0]);"/>
+		<button onclick="emai().send()">Email</button>
 	</body>
 		<script>
-		email.setSender("josephappeah@gmail.com");
-		email.setRecepient("josephappeah@gmail.com");
-		email.setMessage("The email");
-		email.setPassword("babbatts");
+		emai().setSender("josephappeah@gmail.com");
+		emai().setRecepient("josephappeah@gmail.com");
+		emai().setMessage("The email");
+		emai().setPassword("babbatts");
 		
 		
 		</script>

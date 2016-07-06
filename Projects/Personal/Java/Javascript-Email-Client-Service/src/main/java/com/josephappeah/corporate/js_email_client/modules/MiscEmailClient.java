@@ -42,9 +42,10 @@ public class MiscEmailClient implements EmailClientHandler{
 
 	public void processRequest() throws Exception{
 		try{
+			logger.debug("Initializing request processor.");
 			email = EmailRequestProcessor.processRequest(sender, password, recepient, attachment, host, message, subject, email);
 		}catch(Exception e){
-			
+			logger.error("Failed to initialize request processor.",e);
 		}
 	}
 	

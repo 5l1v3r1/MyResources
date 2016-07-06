@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 import com.josephappeah.corporate.js_email_client.utils.JSEmailClientDelegator;
 import com.josephappeah.corporate.js_email_client.utils.RestServiceParamParser;
 
-@Path("/emailclient")
+@Path("/js-email-client")
 public class JSEmailClientService {
 	private static final Logger logger = LoggerFactory.getLogger(JSEmailClientService.class);
 	private File attachment = null;

@@ -23,7 +23,7 @@ public class EmailRequestProcessor {
 			String subject,
 			MimeMessage email) throws Exception
 	{
-		
+		logger.debug("Setting properties for host.");
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.socketFactory.port", "465");
@@ -52,6 +52,7 @@ public class EmailRequestProcessor {
 				multipart.addBodyPart(emailattachment);
 				email.setContent(multipart);
 			}catch(Exception e){
+				logger.error("Failed to set email properties.",e);
 				throw e;
 			}
 	         

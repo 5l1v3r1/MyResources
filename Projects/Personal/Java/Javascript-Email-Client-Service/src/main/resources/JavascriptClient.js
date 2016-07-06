@@ -9,7 +9,6 @@ var jsec_sender, jsec_password, jsec_recepient, jsec_subject, jsec_message, jsec
 var jsec_attachment;
 
 var email = {
-	
 	/*
 		check that CORS headers are set
 		source: 
@@ -31,7 +30,7 @@ var email = {
 		executes final send action
 	*/
 	send: function(){
-		var xhr = email.createCORSRequest('POST','http://localhost:8080/v1/emailclient');
+		var xhr = email.createCORSRequest('POST','http://localhost:8080/v1/js-email-client');
 		if(xhr){
 				xhr.onload = function(){
 					result = xhr.responseText;
@@ -145,4 +144,9 @@ var email = {
 			"host"       : jsec_client
 		} )
 	}
+}
+
+function emai(){
+	var email_ = email;
+	return email_;
 }

@@ -25,7 +25,6 @@ public class JSEmailClientApp {
 	private static YahooEmailClient yec = null;
 	private static HotmailEmailClient hec = null;
 	private static MiscEmailClient mec = null;
-	private static JSEmailClientDelegator jsecd = null;
 	private static JSEmailClientServer jsecs = null;
 	private static Properties props = new Properties();
 	
@@ -55,7 +54,6 @@ public class JSEmailClientApp {
 			yec = (YahooEmailClient) ctx.getBean("YahooClient");
 			hec = (HotmailEmailClient) ctx.getBean("HotmailClient");
 			mec = (MiscEmailClient) ctx.getBean("ProvidedClient");
-			jsecd = (JSEmailClientDelegator) ctx.getBean("ApplicationDelegator");
 			jsecs = (JSEmailClientServer) ctx.getBean("ApplicationServer");
 			logger.debug("Beans created successfully.");
 		}catch(Exception e){
@@ -70,7 +68,7 @@ public class JSEmailClientApp {
 		
 		try{
 			logger.debug("Setting email client handlers.");
-			jsecd.setEMailClientHandlers(emailclienthandlers);
+			JSEmailClientDelegator.setEMailClientHandlers(emailclienthandlers);
 		}catch(Exception e){
 			logger.error("Failed email client handlers.",e);
 			throw e;
@@ -78,7 +76,7 @@ public class JSEmailClientApp {
 		
 		try{
 			logger.debug("Starting server.");
-			jsecs.portnumber = Integer.parseInt((String) props.getProperty("portnumber"));
+			JSEmailClientServer.portnumber = Integer.parseInt((String) props.getProperty("portnumber"));
 			jsecs.startUp();
 		}catch(Exception e){
 			logger.error("Failed to start server.",e);

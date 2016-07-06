@@ -36,7 +36,7 @@ public class JSEmailClientDelegator {
 			filename = "No attachment";
 		}
 		
-		logger.debug("Set request properties:{}; {}; {}; {}; {};",sender, recepient, host , filename ,message);
+		logger.debug("Request properties set successfully:{}; {}; {}; {}; {};",sender, recepient, host , filename ,message);
 	}
 	
 	private void selectEmailHandler() throws Exception{
@@ -44,25 +44,25 @@ public class JSEmailClientDelegator {
 			logger.debug("Selecting appropriate handler.");
 			if(sender.contains("@gmail")){
 				JSEmailClientDelegator.ech = emailclienthandlers.get("gmail");
-				logger.debug("gmail handler selected.");
+				logger.debug("gmail client handler selected.");
 			}
-			else if(sender.contains("@yahoo")   || sender.contains("@ymail")){
+			else if(sender.contains("@yahoo")    || sender.contains("@ymail")){
 				JSEmailClientDelegator.ech = emailclienthandlers.get("ymail");
-				logger.debug("yahoo mail handler selected.");
+				logger.debug("yahoo mail client handler selected.");
 			}
 			else if(sender.contains("@hotmail")  || sender.contains("@live")){
 				JSEmailClientDelegator.ech = emailclienthandlers.get("hotmail");
-				logger.debug("windows/live handler selected.");
+				logger.debug("windows/live client handler selected.");
 			}
 			else if(this.host!= null){
 				JSEmailClientDelegator.ech = emailclienthandlers.get("misc");
-				logger.debug("unknown host. miscellaneous handler selected.");
+				logger.debug("unknown host. miscellaneous client handler selected.");
 			}
 			else if(
-					!sender.contains("@gmail")  || 
-					!sender.contains("@gmail")  ||
-					!sender.contains("@yahoo")  || !sender.contains("@ymail") ||
-					!sender.contains("@hotmal") || !sender.contains("@live")  &&
+					!sender.contains("@gmail")   || 
+					!sender.contains("@gmail")   ||
+					!sender.contains("@yahoo")   || !sender.contains("@ymail") ||
+					!sender.contains("@hotmail") || !sender.contains("@live")  &&
 					this.host == null)
 			{
 				logger.error("Failed to find an appropriate handler and no host provided by user.");
@@ -75,7 +75,7 @@ public class JSEmailClientDelegator {
 	}
 	
 	private void sendEmail() throws Exception {
-		logger.info("Processing email request.");
+		logger.debug("Processing email request.");
 		try{
 			logger.debug("Setting properties for EmailClientHandler class {}.", ech.getClass().getName());
 			JSEmailClientDelegator.ech.setProperties(sender,password, recepient, attachment, host, message, subject);
@@ -85,7 +85,7 @@ public class JSEmailClientDelegator {
 		}
 		
 		try{
-			logger.debug("Initializing email request processor.");
+			//logger.debug("Initializing email request processor.");
 			JSEmailClientDelegator.ech.processRequest();
 		}catch(Exception e){
 			logger.error("Failed to initialize email request processor.",e);
@@ -107,6 +107,7 @@ public class JSEmailClientDelegator {
 		try{
 			selectEmailHandler();
 		}catch (Exception e){
+			logger.error("Failed to initialize applcation delegate.",e);
 			throw e;
 		}
 		sendEmail();
