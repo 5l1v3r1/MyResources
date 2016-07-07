@@ -8,14 +8,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.json.JSONObject;
+import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.josephappeah.corporate.js_email_client.utils.JSEmailClientDelegator;
-import com.josephappeah.corporate.js_email_client.utils.RestServiceParamParser;
+import com.josephappeah.corporate.js_email_client.utils.MultipartFormParamParser;
 
 @Path("/js-email-client")
 public class JSEmailClientService {
@@ -24,9 +22,10 @@ public class JSEmailClientService {
 	private Map<String,Object> params = new HashMap<String,Object>();
 	
 	@POST
-	public Response sendEmail(String properties){
+	public Response sendEmail(MultipartFormDataInput properties){
+		logger.debug("{}",properties);
 		logger.debug("New request recieved.");
-		params = RestServiceParamParser.getParams(new JSONObject(properties));
+		params = MultipartFormParamParser.getParams(properties);
 		
 		String sender = params.get("sender").toString();
 		String password = params.get("password").toString();
@@ -34,29 +33,17 @@ public class JSEmailClientService {
 		String recepient = params.get("recepient").toString();
 		String message = params.get("message").toString();
 		String host = params.get("host").toString();
-		byte[] attachment = null;
-		
-		try{
-			logger.debug("Obtaining email attachment.");
-			attachment = IOUtils.toByteArray(IOUtils.toInputStream(params.get("attachment").toString()));
-		} catch(Exception e){
-			logger.error("Failed to obtain attachment",e);
-			return Response
-					.status(500)
-					.entity("Your e-mail attachment could not be processed. Please ensure the file is not corrupted or over 25MB.")
-					.header("Access-Control-Allow-Origin", "*")
-					.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT")
-					.build();
+		File attachment = null;
+		if(params.get("attachment")!= null){
+			attachment = (File) params.get("attachment");
 		}
 		
-		
 		try{
-			if(attachment.length != 0 && attachment.length <= 25000){
+			if(attachment != null && attachment.length() <= 25000){
 				logger.debug("Converting bytes to file.");
-				this.attachment = File.createTempFile("tempfile", "");
-				FileUtils.writeByteArrayToFile(this.attachment, attachment);
+				this.attachment = attachment;
 			}else{
-				attachment = null;
+				this.attachment = null;
 			}
 		}catch(Exception e){
 			logger.error("Failed to convert bytes to file",e);

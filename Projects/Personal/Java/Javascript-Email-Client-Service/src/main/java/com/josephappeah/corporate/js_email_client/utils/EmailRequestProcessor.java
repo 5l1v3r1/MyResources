@@ -102,7 +102,6 @@ public class EmailRequestProcessor {
 				throw e;
 			}
 		}
-		
 		return email;
 	}
 }
