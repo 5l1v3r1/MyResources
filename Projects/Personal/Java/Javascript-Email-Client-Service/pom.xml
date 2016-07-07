@@ -32,7 +32,7 @@
             </executions>
            <configuration>
 
-               <mainClass>com.josephappeah.corporate.image_name_generator.application.ImageNameGeneratorApp</mainClass>
+               <mainClass>com.josephappeah.corporate.js_email_client.application.JSEmailClientApp</mainClass>
 
 </configuration>
          </plugin>
@@ -51,7 +51,7 @@
             <configuration>
                 <transformers>
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-					<mainClass>com.josephappeah.corporate.image_name_generator.application.ImageNameGeneratorApp</mainClass>
+					<mainClass>com.josephappeah.corporate.js_email_client.application.JSEmailClientApp</mainClass>
 				</transformer>
 			  </transformers>
                 

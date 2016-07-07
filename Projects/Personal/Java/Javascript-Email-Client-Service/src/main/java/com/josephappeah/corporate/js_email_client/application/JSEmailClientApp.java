@@ -42,7 +42,7 @@ public class JSEmailClientApp {
 		
 		try{
 			logger.debug("Obtaining properties");
-			props.load(new FileInputStream(new File("src/main/resources/JSEmailClientProperties.properties")));
+			props.load(new FileInputStream(new File(System.getenv("ROVI_BASE") +File.separator +"JSEmailClientProperties.properties")));
 		}catch(Exception e){
 			logger.error("Failed to obtain properties.",e);
 			throw e;
