@@ -1,16 +1,13 @@
 <!DOCTYPE HTML>
 <html>
-		<!--	
-		================================================================
-						Javascript Email Client
-						author      : Joseph Appeah
-						date        : Jun 23, 2016
-						description : Landing page for js email client
-						frameworks  : html, css, javascript		
-		================================================================
-		-->
+<!--
+	Javascript Email Client
+	author      : Joseph Appeah
+	date        : Jun 23, 2016	
+-->
     <head>
         <title>js email client</title>
+		
 		<!-- Bootstrap + jquery + Animate -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -19,38 +16,81 @@
 		<link rel="stylesheet" href="animate.css">
         
         <!-- Custom Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
         
-        <!-- My Javascript & CSS -->    
+        <!-- My Javascript & CSS -->   
+		<script type="text/javascript" src="ja-script.js"></script>		
         <script type="text/javascript" src="script.js"></script>
         <link rel="stylesheet" href="stylesheet.css" type="text/css">
 		<script type="text/javascript" src="email.js"></script>
     </head>
 	
 	<body>
+	
 		<!-- Navbar -->
-		<nav class="nav navbar-default">
+		<nav id="navbar" class="navbar navbar-default">
 			<div class="container-fluid">
-				<a class="navbar-brand"></a>
-				<ul class="navbar-left">
-					<li><li>
-				</ul>
-			<div>
-		</nav>
-		
+			  
+				<div class="navbar-header">
+					<button id="navbar-burger" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-links">
+						<span class="sr-only glyphicon glyphicon-menu-hamburger"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" id="navbar-brand" href="#">email.js</a>
+				</div>
+
+				<div class="collapse navbar-collapse navbar-right" id="navbar-links">
+					<ul class="nav navbar-nav" id="navbar-collapsed">
+						<li><a  id="navbar-link" href="#about-client">About</a></li>
+						<li><a  id="navbar-link" href="#">Github</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav><!--/navbar -->
+	
 		<!-- Header -->
 		<section id="header">
-			<a></a>
-		</section>
+			<div id="header-container" class="container-fluid">
+				<p id="intro-text">Send emails from javascript with no server side code.</p>
+				<a class="page-scroll btn btn-xl" id="header-button" >It's free, Try it here!</a>
+				<br>
+				<br>
+			</div>
+		</section><!--/header -->
 		
 		<!-- Information -->
-		<section>
-		</section>
+		<section id="about-client">
+			<div class="container-fluid" id="about-client-container">
+				<!-- service function 1 -->
+				<div id="function-1" class="container-fluid" id="">
+					<div class="col-lg-12">
+						<div id="function-description-section" class="col-lg-6">
+							<p id="info-heading-1" >Function One</p>
+							<p id="info-description-1">Some information on function one. It's relevant.</p>
+						</div>
+						<div id="function-image-section" class="col-lg-6">
+							<img id="function-image" />
+						</div>
+					</div>
+				</div><!--/service function 1 -->
+				
+				<!-- service function 2 -->
+				<div id="function-2" class="container-fluid" id="">
+					<div class="col-lg-12">
+						<div id="function-image-section" class="col-lg-6">
+							<img id="function-image" />
+						</div>
+						<div id="function-description-section" class="col-lg-6">
+							<p id="info-heading-2" >Function Two</p>
+							<p id="info-description-2">Some information on function two. It's also relevant</p>
+						</div>
+					</div>
+				</div><!--/service function 2 -->
+			</div>
+		</section><!--/Information -->
 	</body>
 	
 </html>

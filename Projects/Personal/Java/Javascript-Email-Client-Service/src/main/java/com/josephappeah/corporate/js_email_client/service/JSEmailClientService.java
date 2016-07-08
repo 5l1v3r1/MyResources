@@ -4,8 +4,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
@@ -15,13 +19,19 @@ import org.slf4j.LoggerFactory;
 import com.josephappeah.corporate.js_email_client.utils.JSEmailClientDelegator;
 import com.josephappeah.corporate.js_email_client.utils.MultipartFormParamParser;
 
+
+
 @Path("/js-email-client")
 public class JSEmailClientService {
+	
 	private static final Logger logger = LoggerFactory.getLogger(JSEmailClientService.class);
 	private File attachment = null;
 	private Map<String,Object> params = new HashMap<String,Object>();
 	
 	@POST
+	@GET
+	@OPTIONS
+	@Consumes(MediaType.MULTIPART_FORM_DATA)	
 	public Response sendEmail(MultipartFormDataInput properties){
 		logger.debug("{}",properties);
 		logger.debug("New request recieved.");
