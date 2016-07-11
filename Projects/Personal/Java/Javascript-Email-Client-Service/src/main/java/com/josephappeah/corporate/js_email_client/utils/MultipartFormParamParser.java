@@ -48,7 +48,7 @@ public class MultipartFormParamParser {
 			parsedData.put("password", params.get("password").get(0).getBodyAsString());
 		}catch(Exception e){
 			logger.error("Failed to obtain password",e);
-			throw e;	
+			//throw e;	
 		}
 		
 		try{

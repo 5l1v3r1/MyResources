@@ -14,7 +14,7 @@ html,body{
 }
 
 #navbar-link{
-	color: white !important;
+	color: #222 !important;
 	text-align:center;
 }
 #navbar-link:hover{
@@ -22,50 +22,60 @@ html,body{
 }
 
 #navbar-links{
-	background:#222;
-	box-shadow:0 5px 7px -5px #424242;
+	background:#e0e0e0;
+	/*box-shadow:1px 1px 1px #a6a6a6;*/
 	border-bottom: #424242;
+	text-transform: uppercase;
+	text-shadow:0px;
+	font-size: 12px;
 }
 
 #intro-text{
 	margin-top:10%;
 	padding-left:1%;
 	padding-right:1%;
-	font-size:37px;
-	font-family: Lato;
+	font-size:33px;
+	font-family: Raleway;
 	text-align: center !important;
 }
 
 #navbar{
-	background:#222 !important;
+	background:#e0e0e0 !important;
 	border-radius:0px !important;
 	font-family: Josefin Sans !important;
 	width: 100% !important;
-	box-shadow:1px 2px 1px #a6a6a6;
-	height:40px !important;
+	box-shadow:1px 1px 1px #a6a6a6;
+	height:35px !important;
 	border: 0px; 
 	margin-bottom: 0% !important;
 	border-bottom: #424242;
 }
 
 #navbar-brand{
-	color: white !important;
-	font-family:Lato !important;
+	color: #222 !important;
+	font-family:Raleway !important;
+	font-size: 25px;
+	/*text-shadow:1px 2px 1px #424242;*/
 }
 
 #header{
 	margin-top: 0% !important;
-	height:65%;
-	border-bottom: 1px solid #e5e5e5;
+	height:50%;
+	border-bottom: 1px solid #bdbdbd;
 	text-align: center !important; 
+	background:#e0e0e0;
+
 }
 
 #header-button{
 	color:#222;
 	background:#e5e5e5;
 	border-radius:0px !important;
-	font-family:Lato !important;
-	margin-top:10%;
+	font-family:Josefin Sans !important;
+	margin-top:7%;
+	text-transform: uppercase;
+	text-shadow:0px;
+	font-size: 12px;
 }
 
 #header-button:hover{
