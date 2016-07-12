@@ -8,6 +8,18 @@
 
 function email(){
 	var FD  = new FormData();
+	var allfunctions=[];
+	
+	/*
+		encrypt the contents of function call to prevent browser viewing
+	*/
+	this.encrypt = function(){
+        for ( var i in window) {
+			if((typeof window[i]).toString()=="function"){
+				allfunctions.push(window[i].name);
+			}
+		}
+	};
 	
 	/*
 		check that CORS headers are set

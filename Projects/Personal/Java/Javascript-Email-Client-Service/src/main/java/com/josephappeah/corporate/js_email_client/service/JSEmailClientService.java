@@ -32,8 +32,8 @@ public class JSEmailClientService {
 	@GET
 	@OPTIONS
 	@Consumes(MediaType.MULTIPART_FORM_DATA)	
-	public Response sendEmail(MultipartFormDataInput properties){
-		logger.debug("{}",properties);
+	public Response sendEmail( MultipartFormDataInput properties){
+		//logger.debug("{}",properties);
 		logger.debug("New request recieved.");
 		params = MultipartFormParamParser.getParams(properties);
 		

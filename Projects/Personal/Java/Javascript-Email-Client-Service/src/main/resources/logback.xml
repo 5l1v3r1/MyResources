@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<jmxConfigurator />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+		</encoder>
+	</appender> 
+
+	<appender name="ACCESS" class="ch.qos.logback.core.FileAppender">
+		<file>JSEmailClient-access.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender> 
+	
+	<appender name="ROVI" class="ch.qos.logback.core.FileAppender">
+		<file>JSEmailClient.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+		</encoder>
+	</appender> 
+	
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ACCESS" />
+		<appender-ref ref="ROVI" />
+	</root>
+
+	<logger name="org.apache.http" level="INFO" additivity="true">
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="io.undertow.accesslog" level="DEBUG" additivity="true">
+		<appender-ref ref="ACCESS" />
+	</logger>
+ 
+	<logger name="com.rovicorp" level="DEBUG" additivity="true">
+		<appender-ref ref="ROVI" />
+	</logger>
+ 
+</configuration>
