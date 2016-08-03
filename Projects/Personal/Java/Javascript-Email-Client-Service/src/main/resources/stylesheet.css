@@ -85,10 +85,11 @@ html,body{
 
 #header-container{
 	height: 100%;
-	width:100%;
+	width: 100%;
 }
 #about-client{
 	margin-top:5%;
+	height:50%;
 }
 
 #about-client-container{

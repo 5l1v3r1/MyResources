@@ -1,0 +1,2 @@
+SAMPLE RESTFUL SPRING SERVICE
+-requires data from database

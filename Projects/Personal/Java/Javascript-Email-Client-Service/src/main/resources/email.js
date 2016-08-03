@@ -5,6 +5,26 @@
 								frameworks   : javascript
 =====================================================================================*/
 
+/*Attempt to append all required libraries to head*/
+
+document.onreadystatechange = function(e)
+{
+    if (document.readyState === 'complete')
+    {
+        //dom is ready, window.onload fires later
+    }
+};
+window.onload = function(){
+	try{
+		//get email-data tag and encrypt content
+		var emailCredentials = document.getElementsByTagName('email-data')[0].innerHTML;
+		document.getElementsByTagName('email-data')[0].innerHTML = '';
+		$('email-data').remove();
+		console.log(emailCredentials);
+	}catch(e){
+		console.log('Error: Failed to append required libraries.');
+	}
+} 
 
 function email(){
 	var FD  = new FormData();
