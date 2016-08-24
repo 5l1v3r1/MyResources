@@ -3,75 +3,65 @@
 <!--==============================================================================
 						author: Joseph Appeah
 						date  : 07/01/2016
-						description: Simple Social Network In Angular js
+						description: People like to talk about themselves, You is a social network dedicated to doing just that.
 						frameworks: Angular js, Bootstrap
 ===============================================================================-->
 
 	<head>
+	
 		<!-- custom Javascript & CSS -->
-		<link href='ja-style.css' rel="stylesheet" type='text/css'>
+		<link href='css/ja-style.css' rel="stylesheet" type='text/css'>
 		<script type="text/javascript" src="js/ja-script.js"></script>
 		
-		<!-- Anumate.css -->
+		<!-- Animate.css -->
 		<link rel="stylesheet" href="animate.css">
 		
 		<!-- jquery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		
-		<!-- angular js -->
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-		<script src="app.js"></script>
-		<script src="ctrl.js"></script>
-	
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
 		<!-- fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		
 	</head>
 	
 	<body>
 		<!-- Navigation Bar -->
 		<nav class="navbar nav" id="nav-on-scroll">
 			<div class="container-fluid">
-				<a class="navbar-brand"></a>
-				<ul class="navbar-right">
-					<li>
-						<a>Log in</a>
-					</li>
-					<li>
-						<a href="Login-Signup-Page.html" >Sign up</a>
-					</li>
-					<li>
-						<a>About</a>
-					</li>
-				</ul>
+				<a class="navbar-brand" id="navbar-brand">You</a>
 			</div>
 		</nav>
 		
 		<!-- Header -->
-		<section id="header">
+		<header>
 			<div class="container-fluid">
+
 			</div>
-		</section>
-		
-		<!-- Information -->
-		<aside></aside>
-		<aside></aside>
-		<aside></aside>
-		
-		<!-- Sign up section-->
+		</header>
+	
+		<!-- Page -->
 		<section id="sign-up">
 			<div class="container-fluid">
+				<div class="col-sm-12">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4">
+						<!--<p class="lead" id="header-message" >It's all about You</p>-->
+						<button id="landing-button" >Log In</button>
+						<button id="landing-button" >Sign Up</button>
+						<button id="landing-button" class="find-out-more-button" >Find Out More</button>
+					</div>
+					<div class="col-sm-4"></div>
+				</div>
 			</div>
 		</section>
-		
-		<!-- footer -->
-		<footer>
-			<div class="container-fluid">
-			</div>
-		</footer>
+
 	</body>
+	
 </html>
