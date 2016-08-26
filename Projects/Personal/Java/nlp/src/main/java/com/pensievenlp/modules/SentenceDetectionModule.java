@@ -17,8 +17,7 @@ public class SentenceDetectionModule {
 	private static Properties configs = null;
 	private static final Logger logger = LoggerFactory.getLogger(SentenceDetectionModule.class);
 	
-	public SentenceDetectionModule() throws Exception {
-		ConfigurationManager cm = new ConfigurationManager();
+	public SentenceDetectionModule(ConfigurationManager cm) throws Exception {
 		configs = cm.getConfigs();
 	}
 	
@@ -40,7 +39,7 @@ public class SentenceDetectionModule {
 		SentenceDetectorME sentenceDetector = null;
 		
 		try{
-			parseSentenceHelper = new FileInputStream(configs.getProperty("sentnce-filepath"));
+			parseSentenceHelper = new FileInputStream(configs.getProperty("sentence-filepath"));
 		} catch (Exception e){
 			logger.error("Unable to obtain sentence file via {}. Ensure filepath is correct."
 						, configs.getProperty("sentnce-filepath")
